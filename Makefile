@@ -13,10 +13,11 @@ build_chrome:
 build_safari:
 	rm -rf ./dist/safari
 	mkdir ./dist/safari
-	mkdir ./dist/safari/js
-	cp ./lib/safari/Info.plist ./dist/safari
-	cp ./lib/safari/Settings.plist ./dist/safari
-	cp ./lib/pipefy.js ./dist/safari/js
+	mkdir ./dist/safari/sherclock.safariextension
+	mkdir ./dist/safari/sherclock.safariextension/js
+	cp ./lib/safari/Info.plist ./dist/safari/sherclock.safariextension
+	cp ./lib/safari/Settings.plist ./dist/safari/sherclock.safariextension
+	cp ./lib/pipefy.js ./dist/safari/sherclock.safariextension/js
 
 test:
 	@NODE_ENV=test ./node_modules/.bin/mocha --recursive --reporter $(REPORTER) --timeout 3000

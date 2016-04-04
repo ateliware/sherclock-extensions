@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Kelvin Stinghen</string>
+	<key>Builder Version</key>
+	<string>11601.1.56</string>
+	<key>CFBundleDisplayName</key>
+	<string>sherclock</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.kelvinst.sherclock</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.1</string>
+	<key>CFBundleVersion</key>
+	<string>0</string>
+	<key>Chrome</key>
+	<dict/>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>Start</key>
+			<array>
+				<string>js/pipefy.js</string>
+			</array>
+		</dict>
+		<key>Whitelist</key>
+		<array>
+			<string>http://app.pipefy.com/*</string>
+			<string>https://app.pipefy.com/*</string>
+		</array>
+	</dict>
+	<key>Description</key>
+	<string>Harvest time tracking on Pipefy</string>
+	<key>DeveloperIdentifier</key>
+	<string>0000000000</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Allowed Domains</key>
+			<array>
+				<string>*.pipefy.com</string>
+				<string>*.sherclock.com</string>
+				<string>sherclock.herokuapp.com</string>
+				<string>sherclock-staging.herokuapp.com</string>
+			</array>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>Some</string>
+		</dict>
+	</dict>
+	<key>Website</key>
+	<string>https://github.com/kelvinst/sherclock-safari-extension</string>
+</dict>
+</plist>

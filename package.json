@@ -1,0 +1,33 @@
+{
+  "name": "sherclock-extensions",
+  "version": "0.0.1",
+  "description": "All the sherclock extensions (for any browser)",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^3.5.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kelvinst/sherclock-extensions.git"
+  },
+  "keywords": [
+    "sherclock",
+    "extension"
+  ],
+  "author": "Kelvin Stinghen <kelvin.stinghen@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kelvinst/sherclock-extensions/issues"
+  },
+  "homepage": "https://github.com/kelvinst/sherclock-extensions"
+}

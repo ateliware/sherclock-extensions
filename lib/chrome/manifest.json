@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "Sherclock chrome extension",
+  "short_name": "Sherclock",
+  "description": "Extension to track time in Sherclock in the point of your pointer.",
+  "version": "0.0.1",
+
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [ "*://app.pipefy.com/*" ],
+      "js": [ "pipefy.js" ],
+      "run_at": "document_start"
+    }
+  ]
+}

@@ -31,6 +31,8 @@
 		<array>
 			<string>http://app.pipefy.com/*</string>
 			<string>https://app.pipefy.com/*</string>
+			<string>http://beta.pipefy.com/*</string>
+			<string>https://beta.pipefy.com/*</string>
 		</array>
 	</dict>
 	<key>Description</key>

@@ -14,11 +14,22 @@
 
       this.config = config;
       this.addTimer = __bind(this.addTimer, this);
-      this.cardTitleSelector = ".card-details .card-header h1.card-name"
-      this.actionSelector = ".add-more-launcher ul.dropdown-menu";
       this.actionElement = null;
       this.renderTries = 0;
       this.timerListItem = null;
+      this.linkPattern = /^https?:\/\/(.+).pipefy.com(\/v2)?\/pipes\/([0-9]+)#cards\/([0-9]+)$/;
+
+      link = window.location.href;
+      linkParts = link.match(this.linkPattern);
+      this.isBeta = linkParts[1] === "beta";
+
+      if (this.isBeta) {
+        this.cardTitleSelector = ".card-title-editable a";
+        this.actionSelector = ".card-sidebar nav ul";
+      } else {
+        this.cardTitleSelector = ".card-details .card-header h1.card-name";
+        this.actionSelector = ".add-more-launcher ul.dropdown-menu";
+      }
 
       _this = this;
       document.addEventListener('DOMContentLoaded', function() {
@@ -34,22 +45,19 @@
       var _this = this;
       setTimeout(function() {
         var actionList = document.querySelector(_this.actionSelector);
-        var cardTitle = document.querySelector(_this.cardTitleSelector)
-        if ((actionList != null) && (cardTitle !== null)) {
+        var cardTitle = document.querySelector(_this.cardTitleSelector);
+        if ((actionList !== null) && (cardTitle !== null)) {
           var data = _this.getDataForTimer();
           if (_this.notEnoughInfo(data)) {
             _this.addTimer();
             return;
           }
 
-          var modalClasses = document.querySelector('.modal').className
-          _this.renderTries++;
-          !debug || console.info("trying to add button");
-
+          if (debug) console.info("trying to add button");
           var hasActions = !!document.querySelector(_this.actionSelector);
 
           if (!hasActions) {
-            !debug || console.info("pipefy is not ready...");
+            if (debug) console.info("pipefy is not ready...");
             _this.addTimer();
             return;
           }
@@ -57,7 +65,7 @@
           _this.buildTimer(data);
           _this.addTimerAgainIfElementRerendered();
 
-          !debug || console.info("button added!" + (_this.renderTries > 1 ? "(for the " + _this.renderTries + " time)" : ""));
+          if (debug) console.info("button added!" + (_this.renderTries > 1 ? "(for the " + _this.renderTries + " time)" : ""));
         } else {
           _this.addTimer();
         }
@@ -66,18 +74,18 @@
 
     PipefyProfile.prototype.getDataForTimer = function() {
       var itemName, link, linkParts, projectName, cardTitle, _ref1;
-      cardTitle = document.querySelector(this.cardTitleSelector)
-      itemName = cardTitle != null ? cardTitle.innerText.trim() : void 0;
-      projectName = (_ref1 = document.querySelector(".pipe-header .pipe-title a")) != null ? _ref1.innerText.trim() : void 0;
+      cardTitle = document.querySelector(this.cardTitleSelector);
+      itemName = cardTitle !== null ? cardTitle.innerText.trim() : void 0;
+      projectName = (_ref1 = document.querySelector(".pipe-header .pipe-title a")) !== null ? _ref1.innerText.trim() : void 0;
       link = window.location.href;
-      linkParts = link.match(/^https?:\/\/app.pipefy.com(\/v2)?\/pipes\/([0-9]+)#cards\/([0-9]+)$/);
+      linkParts = link.match(this.linkPattern);
       return {
         project: {
-          id: linkParts != null ? linkParts[2] : void 0,
+          id: linkParts !== null ? linkParts[3] : void 0,
           name: projectName
         },
         item: {
-          id: linkParts != null ? linkParts[3] : void 0,
+          id: linkParts !== null ? linkParts[4] : void 0,
           name: itemName
         }
       };
@@ -85,7 +93,7 @@
 
     PipefyProfile.prototype.notEnoughInfo = function(data) {
       var _ref, _ref1;
-      return !(((data != null ? (_ref = data.project) != null ? _ref.id : void 0 : void 0) != null) && ((data != null ? (_ref1 = data.item) != null ? _ref1.id : void 0 : void 0) != null));
+      return !(((data !== null ? (_ref = data.project) !== null ? _ref.id : void 0 : void 0) !== null) && ((data !== null ? (_ref1 = data.item) !== null ? _ref1.id : void 0 : void 0) !== null));
     };
 
     PipefyProfile.prototype.buildTimer = function(data) {
@@ -123,18 +131,18 @@
       icon = document.createElement("i");
       icon.className = "fa fa-clock-o";
       timer.appendChild(icon);
-      timer.appendChild(document.createTextNode(" Sherclock"));
+      timer.appendChild(document.createTextNode(" Add Timer"));
       this.timerListItem.appendChild(timer);
 
-      return actions.insertBefore(this.timerListItem, actions.children[1]);
+      return actions.insertBefore(this.timerListItem, actions.children[actions.children.length]);
     };
 
     PipefyProfile.prototype.addTimerIfAlreadyInCard = function() {
       var link = window.location.href;
-      var linkParts = !!link.match(/^https?:\/\/app.pipefy.com(\/v2)\/pipes\/[0-9]+#cards\/[0-9]+$/);
+      var linkParts = !!link.match(this.linkPattern);
       if(linkParts)
         this.addTimer();
-    }
+    };
 
     PipefyProfile.prototype.addTimerAgainIfElementRerendered = function() {
       var checkOks = 0;
@@ -145,7 +153,7 @@
 
           if (!actions) {
             // We are not at the card anymore!
-            !debug || console.info("Goodbye Mr. Card!");
+            if (debug) console.info("Goodbye Mr. Card!");
             _this.renderTries = 0;
             clearInterval(handler);
             return;
@@ -155,24 +163,24 @@
             checkOks++;
             // Check for rerendering only for ONE second
             if (checkOks < 2000 / interval) {
-              !debug || console.info("OK");
+              if (debug) console.info("OK");
               return; // All is ok, for now
             }
 
             // I bet it stopped rerendering stuff
-            !debug || console.info("Cleared retries count");
+            if (debug) console.info("Cleared retries count");
             _this.renderTries = 0;
             clearInterval(handler);
             return;
           }
 
           // It rerendered for some reason!
-          !debug || console.info("Card rerendered!");
+          if (debug) console.info("Card rerendered!");
           clearInterval(handler);
           _this.addTimer();
-        }
+        };
       })(this), interval);
-    }
+    };
 
     PipefyProfile.prototype.addTimerWhenUrlChanges = function() {
       var ph, script,
@@ -208,7 +216,7 @@
     return PipefyProfile;
   })();
 
-  console.log("Sherclock extensions. Github: https://github.com/kelvinst/sherclock-safari-extension & https://github.com/kelvinst/sherclock-chrome-extension")
+  console.log("Sherclock extensions. Github: https://github.com/kelvinst/sherclock-extensions");
 
   return new PipefyProfile();
 }).call(this);

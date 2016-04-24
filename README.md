@@ -2,15 +2,26 @@
 
 These are all the implementation of chrome and safari extensions for sherclock.
 
-## To build and distribute it
+## Installation
 
-Just run `make build` to build a new `./dist/` folder with the compiled/copied
-code for all browsers.
+Go to the [releases page](releases), select the version (I suggest the last
+stable :grin:) and download the extension file on it. The `.crx` is for chrome
+and `.safariextz` is for safari.
 
-## To intall it (some dev skills needed)
+## Release
 
-Sorry for all this inconvenience, we will build a original certified safari
-extension soon, and put the compiled files on the dist folders. Thanks.
+Here's how to release a new version of the extensions:
+
+* Search for the last version on the files (you can get it on the `package.json`
+file, the `"version"` key) and increment all of it, except for the one on the
+`dist` folder (they will be overwritten anyway);
+* Run `make`;
+* To generate the safari extension:
+  *
+
+## Contribute
+
+Here's is how to install the plugins in dev mode on all browsers
 
 ### On chrome
 
@@ -20,7 +31,7 @@ extension soon, and put the compiled files on the dist folders. Thanks.
 git clone https://github.com/kelvinst/sherclock-extensions.git
 ```
 
-* Build the extension with `make build`;
+* Build the extension with `make`;
 * Visit `chrome://extensions` in your browser;
 * Ensure that the Developer mode checkbox in the top right-hand corner is
 checked;
@@ -38,7 +49,7 @@ checked;
 git clone https://github.com/kelvinst/sherclock-extensions.git
 ```
 
-* Build the extension with `make build`;
+* Build the extension with `make`;
 * Go to the safari preferences (menu "Safari > Preferences" or use the `cmd + ,`
 shortcut);
 * On the "Advanced" tab, make sure that the "Show Develop menu in the menu bar"
@@ -58,3 +69,4 @@ If you have any question, refer to it for some basic structure explanations
 (like the Makefile, and other structure patterns).
 
 [tutorial]: http://www.wolfe.id.au/2014/02/01/getting-a-new-node-project-started-with-npm/
+[releases]: https://github.com/kelvinst/sherclock-extensions/releases

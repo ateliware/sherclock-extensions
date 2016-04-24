@@ -208,7 +208,6 @@
       };
       fn = window.history.pushState;
       window.history.pushState = function() {
-        console.log("push state");
         fn.apply(window.history, arguments);
         return change();
       };

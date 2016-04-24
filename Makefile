@@ -1,4 +1,7 @@
-all: build_chrome build_safari
+all: test build_chrome build_safari
+
+test:
+	@NODE_ENV=test ./node_modules/.bin/mocha --recursive --reporter $(REPORTER) --timeout 3000
 
 build_chrome:
 	rm -rf ./dist/chrome

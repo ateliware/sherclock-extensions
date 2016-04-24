@@ -1,3 +1,5 @@
+REPORTER = dot
+
 all: test build_chrome build_safari
 
 test:

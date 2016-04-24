@@ -26,7 +26,7 @@ file, the `"version"` key) and increment all of it, except for the one on the
   your extension files live, and select its `dist/chrome` subfolder;
   * It will generate the `.crx` file and a `.pem` file (to update the `.crx`,
   you will need the `.pem` file)
-* Go to the [releases page](releases), and click on the "create a new release"
+* Go to the [releases page](releases), and click on the "Draft a new release"
 button;
 * Set the same version you incremented to the tag and the release title;
 * Upload the `.crx` and the `.safariextz` on the "attach binaries" field;

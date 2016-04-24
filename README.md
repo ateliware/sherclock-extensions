@@ -1,5 +1,10 @@
 # sherclock-extensions
 
+[![Build Status](https://semaphoreci.com/api/v1/kelvinst/sherclock-extensions/branches/master/shields_badge.svg)](https://semaphoreci.com/kelvinst/sherclock-extensions)
+[![Code Climate](https://codeclimate.com/github/kelvinst/sherclock-extensions/badges/gpa.svg)](https://codeclimate.com/github/kelvinst/sherclock-extensions)
+[![Test Coverage](https://codeclimate.com/github/kelvinst/sherclock-extensions/badges/coverage.svg)](https://codeclimate.com/github/kelvinst/sherclock-extensions/coverage)
+[![Issue Count](https://codeclimate.com/github/kelvinst/sherclock-extensions/badges/issue_count.svg)](https://codeclimate.com/github/kelvinst/sherclock-extensions)
+
 These are all the implementation of chrome and safari extensions for sherclock.
 
 ## Installation
@@ -83,3 +88,4 @@ If you have any question, refer to it for some basic structure explanations
 
 - [ ] Update this readme with safari extension release information
 - [ ] Update this readme with deploy to the play store and safari ext directory
+- [ ] Make the release a `make` task, to ease the releasing

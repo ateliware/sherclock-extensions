@@ -4,9 +4,9 @@ These are all the implementation of chrome and safari extensions for sherclock.
 
 ## Installation
 
-Go to the [releases page](releases), select the version (I suggest the last
-stable :grin:) and download the extension file on it. The `.crx` is for chrome
-and `.safariextz` is for safari.
+Go to the [latest release page](https://github.com/kelvinst/sherclock-extensions/releases/latest),
+select the version (I suggest the last stable :grin:) and download the extension
+file on it. The `.crx` is for chrome and `.safariextz` is for safari.
 
 ## Release
 
@@ -26,8 +26,8 @@ file, the `"version"` key) and increment all of it, except for the one on the
   your extension files live, and select its `dist/chrome` subfolder;
   * It will generate the `.crx` file and a `.pem` file (to update the `.crx`,
   you will need the `.pem` file)
-* Go to the [releases page](releases), and click on the "Draft a new release"
-button;
+* Go to the [releases page](https://github.com/kelvinst/sherclock-extensions/releases),
+and click on the "Draft a new release" button;
 * Set the same version you incremented to the tag and the release title;
 * Upload the `.crx` and the `.safariextz` on the "attach binaries" field;
 * Save the release and :tada:, you're done!
@@ -74,7 +74,7 @@ corner, then "Add extension";
 
 ## Important info
 
-This project was built following [these tutorial](tutorial).
+This project was built following [these tutorial](http://www.wolfe.id.au/2014/02/01/getting-a-new-node-project-started-with-npm/).
 
 If you have any question, refer to it for some basic structure explanations
 (like the Makefile, and other structure patterns).
@@ -83,6 +83,3 @@ If you have any question, refer to it for some basic structure explanations
 
 - [ ] Update this readme with safari extension release information
 - [ ] Update this readme with deploy to the play store and safari ext directory
-
-[tutorial]: http://www.wolfe.id.au/2014/02/01/getting-a-new-node-project-started-with-npm/
-[releases]: https://github.com/kelvinst/sherclock-extensions/releases

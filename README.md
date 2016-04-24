@@ -16,8 +16,21 @@ Here's how to release a new version of the extensions:
 file, the `"version"` key) and increment all of it, except for the one on the
 `dist` folder (they will be overwritten anyway);
 * Run `make`;
+* Commit everything;
 * To generate the safari extension:
-  *
+  * ...
+* To generate the chrome extension:
+  * Visit `chrome://extensions`;
+  * Click "Pack extension..." to pop up the pack dialog;
+  * For the "Extension root directory" field, navigate to the directory in which
+  your extension files live, and select its `dist/chrome` subfolder;
+  * It will generate the `.crx` file and a `.pem` file (to update the `.crx`,
+  you will need the `.pem` file)
+* Go to the [releases page](releases), and click on the "create a new release"
+button;
+* Set the same version you incremented to the tag and the release title;
+* Upload the `.crx` and the `.safariextz` on the "attach binaries" field;
+* Save the release and :tada:, you're done!
 
 ## Contribute
 
@@ -38,8 +51,6 @@ checked;
 * Click "Load unpacked extension..." to pop up a file-selection dialog;
 * Navigate to the directory in which your extension files live, and select its
 `dist/chrome` subfolder;
-* Alternatively, you can drag and drop the `dist/chrome` directory onto
-`chrome://extensions` in your browser to load it.
 
 ### On Safari
 
@@ -67,6 +78,11 @@ This project was built following [these tutorial](tutorial).
 
 If you have any question, refer to it for some basic structure explanations
 (like the Makefile, and other structure patterns).
+
+## TODO
+
+- [ ] Update this readme with safari extension release information
+- [ ] Update this readme with deploy to the play store and safari ext directory
 
 [tutorial]: http://www.wolfe.id.au/2014/02/01/getting-a-new-node-project-started-with-npm/
 [releases]: https://github.com/kelvinst/sherclock-extensions/releases

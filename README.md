@@ -4,9 +4,9 @@ These are all the implementation of chrome and safari extensions for sherclock.
 
 ## Installation
 
-Go to the [latest release page](https://github.com/kelvinst/sherclock-extensions/releases/latest),
-select the version (I suggest the last stable :grin:) and download the extension
-file on it. The `.crx` is for chrome and `.safariextz` is for safari.
+Go to the [latest release page](https://github.com/kelvinst/sherclock-extensions/releases/latest)
+and download the extension file on it. The `.crx` is for chrome and
+`.safariextz` is for safari.
 
 ## Release
 

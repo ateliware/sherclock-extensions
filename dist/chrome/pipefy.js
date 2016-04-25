@@ -113,9 +113,8 @@
       this.actionElement = actions;
 
       this.timerListItem = document.createElement("li");
-      this.timerListItem.className = "sherclock-timer";
       timer = document.createElement("a");
-      timer.className = "button-link js-add-trello-timer";
+      timer.className = "sherclock-timer button-link js-add-trello-timer";
       timer.setAttribute("id", "sherclock-timer");
       if (debug) {
         url = "http://sherclock-staging.herokuapp.com/time_entries/new";

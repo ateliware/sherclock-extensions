@@ -4,7 +4,7 @@
   "name": "Sherclock chrome extension",
   "short_name": "Sherclock",
   "description": "Extension to track time in Sherclock in the point of your pointer.",
-  "version": "0.0.4",
+  "version": "0.0.5",
 
   "permissions": [
     "activeTab"

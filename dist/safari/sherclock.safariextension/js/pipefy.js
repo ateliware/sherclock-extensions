@@ -49,10 +49,6 @@
         var cardTitle = document.querySelector(_this.cardTitleSelector);
         if ((actionList !== null) && (cardTitle !== null)) {
           var data = _this.getDataForTimer();
-          if (_this.notEnoughInfo(data)) {
-            _this.addTimer();
-            return;
-          }
 
           if (debug) console.info("trying to add button");
           var hasActions = !!document.querySelector(_this.actionSelector);
@@ -74,27 +70,14 @@
     };
 
     PipefyProfile.prototype.getDataForTimer = function() {
-      var itemName, link, linkParts, projectName, cardTitle, _ref1;
+      var itemName, cardTitle, _ref1;
       cardTitle = document.querySelector(this.cardTitleSelector);
       itemName = cardTitle !== null ? cardTitle.innerText.trim() : void 0;
-      projectName = (_ref1 = document.querySelector(".pipe-header .pipe-title a")) !== null ? _ref1.innerText.trim() : void 0;
-      link = window.location.href;
-      linkParts = link.match(this.cardLinkPattern);
       return {
-        project: {
-          id: linkParts !== null ? linkParts[3] : void 0,
-          name: projectName
-        },
         item: {
-          id: linkParts !== null ? linkParts[4] : void 0,
           name: itemName
         }
       };
-    };
-
-    PipefyProfile.prototype.notEnoughInfo = function(data) {
-      var _ref, _ref1;
-      return !(((data !== null ? (_ref = data.project) !== null ? _ref.id : void 0 : void 0) !== null) && ((data !== null ? (_ref1 = data.item) !== null ? _ref1.id : void 0 : void 0) !== null));
     };
 
     PipefyProfile.prototype.buildTimer = function(data) {
@@ -124,9 +107,7 @@
       timer.setAttribute(
         "href",
         url + "?description=" + encodeURIComponent(data.item.name) +
-          "&external_link=" + encodeURIComponent(window.location.href) +
-            "&external_project_id=" + encodeURIComponent(data.project.id) +
-              "&external_application_id=pipefy"
+          "&external_link=" + encodeURIComponent(window.location.href)
       );
       timer.setAttribute("target", "_blank");
       icon = document.createElement("i");

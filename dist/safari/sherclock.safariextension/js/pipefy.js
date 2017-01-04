@@ -20,8 +20,8 @@
       this.cardLinkPattern = /^https?:\/\/(.+).pipefy.com\/pipes\/([0-9]+)#cards\/([0-9]+)$/;
       this.linkPattern = /^https?:\/\/(.+).pipefy.com\/pipes\/([0-9]+)/;
 
-      this.cardTitleSelector = ".card-title-editable a";
-      this.actionSelector = ".card-sidebar nav ul";
+      this.cardTitleSelector = ".pp-body header h1";
+      this.actionSelector = ".pp-card-tabs ul";
 
       _this = this;
       document.addEventListener('DOMContentLoaded', function() {
@@ -88,12 +88,13 @@
 
       this.timerListItem = document.createElement("li");
       timer = document.createElement("a");
-      timer.className = "sherclock-timer button-link js-add-trello-timer";
+      timer.className = "sherclock-timer pp-ico-dots";
       timer.setAttribute("id", "sherclock-timer");
       if (debug) {
         url = "http://sherclock-staging.herokuapp.com/time_entries/new";
       } else {
-        url = "http://sherclock.com/time_entries/new";
+        // TODO - change this fixed subdomain to a configuration
+        url = "http://ateliware.sherclock.com/time_entries/new";
       }
       timer.setAttribute(
         "href",
@@ -101,10 +102,6 @@
           "&external_link=" + encodeURIComponent(window.location.href)
       );
       timer.setAttribute("target", "_blank");
-      icon = document.createElement("i");
-      icon.className = "fa fa-clock-o";
-      timer.appendChild(icon);
-      timer.appendChild(document.createTextNode(" Add Timer"));
       this.timerListItem.appendChild(timer);
 
       return actions.insertBefore(this.timerListItem, actions.children[actions.children.length]);

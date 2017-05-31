@@ -20,8 +20,8 @@
       this.cardLinkPattern = /^https?:\/\/(.+).pipefy.com\/pipes\/([0-9]+)#cards\/([0-9]+)$/;
       this.linkPattern = /^https?:\/\/(.+).pipefy.com\/pipes\/([0-9]+)/;
 
-      this.cardTitleSelector = ".pp-body header h1";
-      this.actionSelector = ".pp-card-tabs ul";
+      this.cardTitleSelector = ".pp-content header h1";
+      this.actionSelector = ".pp-open-card-content ul";
 
       _this = this;
       document.addEventListener('DOMContentLoaded', function() {
@@ -186,7 +186,7 @@
     return PipefyProfile;
   })();
 
-  console.log("Sherclock extensions. Github: https://github.com/kelvinst/sherclock-extensions");
+  console.log("Sherclock extensions. Github: https://github.com/hprezia/sherclock-extensions");
 
   return new PipefyProfile();
 }).call(this);

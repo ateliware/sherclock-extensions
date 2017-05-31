@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Author</key>
-	<string>Kelvin Stinghen</string>
+	<string>Heitor Prezia</string>
 	<key>Builder Version</key>
 	<string>11601.1.56</string>
 	<key>CFBundleDisplayName</key>
@@ -59,6 +59,6 @@
 		</dict>
 	</dict>
 	<key>Website</key>
-	<string>https://github.com/kelvinst/sherclock-extensions</string>
+	<string>https://github.com/ateliware/sherclock-extensions</string>
 </dict>
 </plist>

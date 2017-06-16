@@ -9,9 +9,16 @@ These are all the implementation of chrome and safari extensions for sherclock.
 
 ## Installation
 
-Go to the [latest release page](https://github.com/kelvinst/sherclock-extensions/releases/latest)
-and download the extension file on it. The `.crx` is for chrome and
-`.safariextz` is for safari.
+Follow this steps to install the chrome extension:
+
+- Go to the [latest release page](https://github.com/kelvinst/sherclock-extensions/releases/latest)
+and download the extension file on it.
+- Download the `chrome.crx` file from the page.
+- Open `chrome://extensions` in other tab of your browser (type it on the
+address bar).
+- Drag the downloaded extension to the extensions page.
+- Click "Add extension" to accept the extension installation.
+- Done!
 
 ## Release
 
@@ -19,23 +26,29 @@ Here's how to release a new version of the extensions:
 
 * Search for the last version on the files (you can get it on the `package.json`
 file, the `"version"` key) and increment all of it, except for the one on the
-`dist` folder (they will be overwritten anyway);
-* Run `make`;
-* Commit everything;
-* To generate the safari extension:
-  * ...
-* To generate the chrome extension:
-  * Visit `chrome://extensions`;
-  * Click "Pack extension..." to pop up the pack dialog;
+`dist` folder (they will be overwritten anyway).
+* Run `make`.
+* Commit everything.
+* To generate the chrome extension.
+  * Visit `chrome://extensions`.
+  * Click "Pack extension..." to pop up the pack dialog.
   * For the "Extension root directory" field, navigate to the directory in which
-  your extension files live, and select its `dist/chrome` subfolder;
-  * It will generate the `.crx` file and a `.pem` file (to update the `.crx`,
-  you will need the `.pem` file)
+  your extension files live, and select its `dist/chrome` subfolder.
+    * If it's the first time you're realeasing it on your machine, leave the
+    "Private key file" empty
+    * If not, you can use the them `.pem` file generated from the previous
+    build.
+  * It will generate the `.crx` file and a `.pem` file.
 * Go to the [releases page](https://github.com/kelvinst/sherclock-extensions/releases),
-and click on the "Draft a new release" button;
-* Set the same version you incremented to the tag and the release title;
-* Upload the `.crx` and the `.safariextz` on the "attach binaries" field;
+and click on the "Draft a new release" button.
+* Set the same version you incremented to the tag and the release title.
+* Upload the `.crx` on the "attach binaries" field.
 * Save the release and :tada:, you're done!
+
+## TODO
+
+- [ ] Document how to release the safari extension
+- [ ] Release the official extensions on the chrome and safari stores
 
 ## Contribute
 

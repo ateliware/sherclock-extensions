@@ -1,6 +1,6 @@
 {
   "name": "sherclock-extensions",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "All the sherclock extensions (for any browser)",
   "main": "index.js",
   "directories": {
